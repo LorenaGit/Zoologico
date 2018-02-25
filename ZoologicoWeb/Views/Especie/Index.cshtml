@@ -1,0 +1,45 @@
+﻿@using ZoologicoWeb.Models;
+@{
+    Layout = null;
+    List<Especie> especie = ViewBag.x;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2> Lista de Especies</h2>
+
+        <a href="/Vehiculo/FormularioNuevo"> Ingresar nueva Especie </a>
+        <br />
+        <br />
+
+        <table border="1">
+            <tr>
+                <td>IdEspecie</td>
+                <td>Nombre</td>
+                <td colspan="2">Opciones</td>
+            </tr>
+
+
+            @foreach (Especie xxx in especie)
+            {
+                <tr>
+                    <td>@xxx.IdEspecie</td>
+                    <td>@xxx.Nombre</td>
+                    <td><a href="/Vehiculo/FormularioUpdate?id=@xxx.IdEspecie">Update</a></td>
+                    <td><a href="/Vehiculo/Borrar?id=@xxx.IdEspecie">Delete</a></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+
+

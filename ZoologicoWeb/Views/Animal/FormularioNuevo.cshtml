@@ -1,0 +1,47 @@
+﻿
+@using ZoologicoWeb.Models;
+@{
+    Layout = null;
+    List<Especie> especies = ViewBag.z;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FormularioNuevo</title>
+</head>
+<body>
+    <div>
+        <form method="GET" action="/Animal/Insertar">
+            <table>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input type="text" name="Nombre" /></td>
+                </tr>
+                <tr>
+                    <td>Especie</td>
+                    <td>
+                        <select name="IdEspecie">
+
+                            @foreach (Especie esp in especies)
+                            {
+                                <option value="@esp.IdEspecie"> @esp.Nombre - @esp.IdEspecie  </option>
+                            }
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Guardar" /></td>
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+</body>
+</html>
+
